@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colocation — 10 sente des Radoubs, Bordeaux</title>
+<meta name="description" content="Colocation de 4 chambres entre filles, quartier Cité du Vin, Bordeaux. Appartement meublé et équipé de 83m² avec jardin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --stone:#EADFC4;
+    --stone-deep:#DCCBA0;
+    --wine:#7A1F2B;
+    --wine-deep:#5A1620;
+    --ink:#2B2420;
+    --sage:#7C8863;
+    --cream:#F6F0E1;
+    --white:#FFFFFF;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--stone);
+    background-image: radial-gradient(circle at 85% 15%, var(--stone-deep) 0%, var(--stone) 55%);
+    padding: 4.5rem 6vw 3rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .eyebrow{
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.18em;
+    color:var(--wine);
+    font-weight:600;
+    margin-bottom:1.1rem;
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.4rem);
+    font-style:italic;
+    font-weight:500;
+    max-width:14ch;
+    line-height:1.04;
+    color:var(--wine-deep);
+  }
+  .hero-sub{
+    margin-top:1.4rem;
+    font-size:1.08rem;
+    max-width:46ch;
+    color:#443B31;
+  }
+  .hero-address{
+    margin-top:2.2rem;
+    display:flex;
+    gap:2.4rem;
+    flex-wrap:wrap;
+    font-size:0.92rem;
+  }
+  .hero-address div{border-left:2px solid var(--wine); padding-left:0.7rem;}
+  .hero-address .label{display:block; text-transform:uppercase; letter-spacing:0.08em; font-size:0.68rem; color:#6b5f4f; margin-bottom:0.15rem;}
+  .hero-address .value{font-weight:500;}
+
+  /* ---------- SIGNATURE: floor plan ---------- */
+  .plan-wrap{
+    margin-top:3.2rem;
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:0.5rem;
+    max-width:760px;
+  }
+  .plan-room{
+    background:var(--cream);
+    border:1.5px solid var(--wine-deep);
+    padding:0.9rem 0.7rem;
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform 0.15s ease, background 0.15s ease;
+    display:flex;
+    flex-direction:column;
+    gap:0.3rem;
+  }
+  .plan-room:hover{background:var(--wine); color:var(--white); transform:translateY(-3px);}
+  .plan-room .num{font-family:'Fraunces',serif; font-size:1.5rem; font-style:italic;}
+  .plan-room .status{font-size:0.68rem; text-transform:uppercase; letter-spacing:0.06em;}
+  .plan-caption{margin-top:0.9rem; font-size:0.78rem; color:#6b5f4f; max-width:60ch;}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:4rem 6vw;}
+  .section-head{max-width:60ch; margin-bottom:2.4rem;}
+  .section-head .eyebrow{margin-bottom:0.6rem;}
+  .section-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem); font-style:italic; font-weight:500; color:var(--wine-deep);}
+
+  /* ---------- AMENITIES ---------- */
+  .amenities{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(180px,1fr));
+    gap:1.6rem;
+    max-width:900px;
+  }
+  .amenity{border-top:2px solid var(--sage); padding-top:0.7rem;}
+  .amenity .t{font-weight:600; font-size:0.95rem; margin-bottom:0.2rem;}
+  .amenity .d{font-size:0.85rem; color:#5a5044;}
+
+  /* ---------- PHOTO PLACEHOLDER ---------- */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:1rem;
+    margin-top:2.4rem;
+  }
+  .photo-placeholder{
+    aspect-ratio:4/3;
+    border:1.5px dashed #B9A97F;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    font-size:0.78rem;
+    color:#8a7d64;
+    background:rgba(255,255,255,0.35);
+    padding:1rem;
+  }
+
+  /* ---------- ROOMS ---------- */
+  .rooms{background:var(--wine-deep); color:var(--cream);}
+  .rooms .section-head h2{color:var(--cream);}
+  .rooms .eyebrow{color:#E8B9A6;}
+  .room-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:1.8rem;
+  }
+  .room-card{
+    background:var(--cream);
+    color:var(--ink);
+    display:flex;
+    flex-direction:column;
+  }
+  .room-card .photo-placeholder{border-color:#C7A98F; margin:0;}
+  .room-body{padding:1.4rem 1.3rem 1.6rem;}
+  .room-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:0.5rem;}
+  .room-top .num{font-family:'Fraunces',serif; font-style:italic; font-size:1.7rem; color:var(--wine);}
+  .badge{
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.07em;
+    padding:0.25rem 0.55rem;
+    border:1px solid var(--wine);
+    color:var(--wine);
+  }
+  .badge.libre{border-color:var(--sage); color:var(--sage);}
+  .room-specs{list-style:none; font-size:0.84rem; margin:0.9rem 0; color:#4a4034;}
+  .room-specs li{display:flex; justify-content:space-between; padding:0.3rem 0; border-bottom:1px solid #e6dcc4;}
+  .room-price{font-family:'Fraunces',serif; font-size:1.5rem; margin-top:0.3rem;}
+  .room-price small{font-family:'Work Sans',sans-serif; font-size:0.7rem; color:#8a7d64; display:block; text-transform:uppercase; letter-spacing:0.06em;}
+  .tenant{margin-top:1.1rem; padding-top:1rem; border-top:1px dashed #C7B98F;}
+  .tenant .tenant-name{font-size:1rem; font-weight:600;}
+  .tenant .tenant-desc{font-size:0.82rem; color:#5a5044; margin-top:0.15rem;}
+
+  /* ---------- DOSSIER ---------- */
+  .dossier{background:var(--cream);}
+  .doc-list{
+    list-style:none;
+    max-width:640px;
+    counter-reset:doc;
+  }
+  .doc-list li{
+    counter-increment:doc;
+    display:flex;
+    gap:1rem;
+    padding:0.9rem 0;
+    border-bottom:1px solid #e6dcc4;
+    font-size:0.92rem;
+  }
+  .doc-list li::before{
+    content:counter(doc, decimal-leading-zero);
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    color:var(--wine);
+    font-size:1rem;
+    flex-shrink:0;
+    width:1.6rem;
+  }
+  .doc-note{
+    margin-top:1.6rem;
+    font-size:0.85rem;
+    color:#5a5044;
+    max-width:60ch;
+    padding:1rem 1.1rem;
+    border-left:2px solid var(--sage);
+    background:rgba(124,136,99,0.08);
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact{background:var(--stone); text-align:left;}
+  .contact h2{font-style:italic; font-weight:500; font-size:clamp(1.8rem,3.6vw,2.6rem); color:var(--wine-deep); max-width:18ch;}
+  .contact-line{margin-top:1.4rem; font-size:1rem;}
+  .contact-line strong{display:block; font-size:0.7rem; text-transform:uppercase; letter-spacing:0.08em; color:#6b5f4f; margin-bottom:0.15rem;}
+
+  footer{padding:1.6rem 6vw; font-size:0.72rem; color:#8a7d64; background:var(--cream);}
+
+  @media (max-width:640px){
+    .plan-wrap{grid-template-columns:repeat(2,1fr);}
+    section{padding:3rem 6vw;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .plan-room{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<!-- =======================================================
+     ZONE FACILE À MODIFIER : noms et descriptions des locataires
+     Cherchez "MODIFIER ICI" pour trouver chaque endroit à changer.
+     ======================================================= -->
+
+<header class="hero">
+  <p class="eyebrow">Colocation · Quartier Cité du Vin · Bordeaux</p>
+  <h1>Un appartement, un jardin, quatre chambres — entre filles.</h1>
+  <p class="hero-sub">Au deuxième étage d'un immeuble du quartier de la Cité du Vin, un 83&nbsp;m² entièrement meublé et équipé, avec jardin, pensé pour une colocation exclusivement féminine.</p>
+
+  <div class="hero-address">
+    <div><span class="label">Adresse</span><span class="value">10 sente des Radoubs, Bordeaux</span></div>
+    <div><span class="label">Surface</span><span class="value">83 m² · 2ᵉ étage</span></div>
+    <div><span class="label">Chambres</span><span class="value">4 chambres · 3 salles de bain</span></div>
+  </div>
+
+  <div class="plan-wrap">
+    <a href="#chambre1" class="plan-room"><span class="num">01</span><span class="status">Occupée</span></a>
+    <a href="#chambre2" class="plan-room"><span class="num">02</span><span class="status">Occupée</span></a>
+    <a href="#chambre3" class="plan-room"><span class="num">03</span><span class="status">Occupée</span></a>
+    <a href="#chambre4" class="plan-room"><span class="num">04</span><span class="status">Occupée</span></a>
+  </div>
+  <p class="plan-caption">Cliquez sur une chambre pour voir son détail. Mettez à jour le statut ("Occupée" / "Libre") dans le code dès qu'une chambre change de main.</p>
+</header>
+
+<section id="appartement">
+  <div class="section-head">
+    <p class="eyebrow">L'appartement</p>
+    <h2>Tout équipé, tout meublé, tout partagé.</h2>
+  </div>
+
+  <ul class="amenities">
+    <li class="amenity"><div class="t">Salon &amp; cuisine ouverte</div><div class="d">Une cuisine-salon et une pièce commune supplémentaire pour se retrouver.</div></li>
+    <li class="amenity"><div class="t">Jardin privatif</div><div class="d">Accès jardin depuis le 2ᵉ étage — rare dans le quartier.</div></li>
+    <li class="amenity"><div class="t">Entièrement meublé</div><div class="d">Chaque chambre et les espaces communs sont meublés.</div></li>
+    <li class="amenity"><div class="t">Électroménager complet</div><div class="d">Lave-linge, lave-vaisselle et sèche-linge inclus.</div></li>
+    <li class="amenity"><div class="t">3 salles de bain</div><div class="d">Une privative (chambre 1) + deux partagées pour les autres chambres.</div></li>
+    <li class="amenity"><div class="t">Colocation filles</div><div class="d">Coloc exclusivement féminine, ambiance calme et bienveillante.</div></li>
+  </ul>
+
+  <div class="gallery">
+    <!-- ✏️ MODIFIER ICI : remplacez chaque bloc par <img src="photos/salon.jpg" alt="Salon"> -->
+    <div class="photo-placeholder">📷 Photo à ajouter — Salon</div>
+    <div class="photo-placeholder">📷 Photo à ajouter — Cuisine</div>
+    <div class="photo-placeholder">📷 Photo à ajouter — Jardin</div>
+    <div class="photo-placeholder">📷 Photo à ajouter — Pièce commune</div>
+  </div>
+</section>
+
+<section class="rooms">
+  <div class="section-head">
+    <p class="eyebrow">Les chambres</p>
+    <h2>Quatre chambres, quatre ambiances.</h2>
+  </div>
+
+  <div class="room-grid">
+
+    <!-- CHAMBRE 1 -->
+    <article class="room-card" id="chambre1">
+      <!-- ✏️ MODIFIER ICI : photo de la chambre 1 -->
+      <div class="photo-placeholder">📷 Photo à ajouter — Chambre 1</div>
+      <div class="room-body">
+        <div class="room-top"><span class="num">01</span><span class="badge">Occupée</span></div>
+        <div class="room-price">560 € <small>+ 50 € de charges / mois</small></div>
+        <ul class="room-specs">
+          <li><span>Surface</span><span>10 m²</span></li>
+          <li><span>Salle de bain</span><span>Privative + WC</span></li>
+        </ul>
+        <div class="tenant">
+          <!-- ✏️ MODIFIER ICI : prénom et description de la locataire de la chambre 1 -->
+          <div class="tenant-name">Prénom</div>
+          <div class="tenant-desc">Courte description (études / travail, âge, personnalité)</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHAMBRE 2 -->
+    <article class="room-card" id="chambre2">
+      <!-- ✏️ MODIFIER ICI : photo de la chambre 2 -->
+      <div class="photo-placeholder">📷 Photo à ajouter — Chambre 2</div>
+      <div class="room-body">
+        <div class="room-top"><span class="num">02</span><span class="badge">Occupée</span></div>
+        <div class="room-price">500 € <small>+ 50 € de charges / mois</small></div>
+        <ul class="room-specs">
+          <li><span>Surface</span><span>10 m²</span></li>
+          <li><span>Salle de bain</span><span>Partagée</span></li>
+        </ul>
+        <div class="tenant">
+          <!-- ✏️ MODIFIER ICI : prénom et description de la locataire de la chambre 2 -->
+          <div class="tenant-name">Prénom</div>
+          <div class="tenant-desc">Courte description (études / travail, âge, personnalité)</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHAMBRE 3 -->
+    <article class="room-card" id="chambre3">
+      <!-- ✏️ MODIFIER ICI : photo de la chambre 3 -->
+      <div class="photo-placeholder">📷 Photo à ajouter — Chambre 3</div>
+      <div class="room-body">
+        <div class="room-top"><span class="num">03</span><span class="badge">Occupée</span></div>
+        <div class="room-price">500 € <small>+ 50 € de charges / mois</small></div>
+        <ul class="room-specs">
+          <li><span>Surface</span><span>10 m²</span></li>
+          <li><span>Salle de bain</span><span>Partagée</span></li>
+        </ul>
+        <div class="tenant">
+          <!-- ✏️ MODIFIER ICI : prénom et description de la locataire de la chambre 3 -->
+          <div class="tenant-name">Prénom</div>
+          <div class="tenant-desc">Courte description (études / travail, âge, personnalité)</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- CHAMBRE 4 -->
+    <article class="room-card" id="chambre4">
+      <!-- ✏️ MODIFIER ICI : photo de la chambre 4 -->
+      <div class="photo-placeholder">📷 Photo à ajouter — Chambre 4</div>
+      <div class="room-body">
+        <div class="room-top"><span class="num">04</span><span class="badge">Occupée</span></div>
+        <div class="room-price">530 € <small>+ 50 € de charges / mois</small></div>
+        <ul class="room-specs">
+          <li><span>Surface</span><span>10 m²</span></li>
+          <li><span>Salle de bain</span><span>Partagée</span></li>
+        </ul>
+        <div class="tenant">
+          <!-- ✏️ MODIFIER ICI : prénom et description de la locataire de la chambre 4 -->
+          <div class="tenant-name">Prénom</div>
+          <div class="tenant-desc">Courte description (études / travail, âge, personnalité)</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="dossier">
+  <div class="section-head">
+    <p class="eyebrow">Candidater</p>
+    <h2>Pour monter votre dossier</h2>
+  </div>
+  <ul class="doc-list">
+    <!-- ✏️ MODIFIER ICI : ajustez cette liste selon ce que vous demandez réellement -->
+    <li>Pièce d'identité (carte d'identité, passeport ou titre de séjour)</li>
+    <li>Justificatif de domicile actuel (facture, quittance de loyer...)</li>
+    <li>Justificatif de situation (carte étudiante, contrat de travail, Kbis...)</li>
+    <li>3 derniers bulletins de salaire, ou bourse / attestation de ressources</li>
+    <li>Dernier avis d'imposition</li>
+    <li>Pièce d'identité du garant</li>
+    <li>3 derniers bulletins de salaire du garant, ou avis d'imposition</li>
+  </ul>
+  <p class="doc-note">
+    <!-- ✏️ MODIFIER ICI : précisez comment envoyer les documents (email, formulaire, etc.) -->
+    Documents à envoyer à : [préciser l'adresse email ou le moyen d'envoi]
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Une chambre se libère bientôt ?</h2>
+  <div class="contact-line">
+    <!-- ✏️ MODIFIER ICI : vos coordonnées -->
+    <strong>Contact</strong>
+    [Votre nom] · [Téléphone] · [Email]
+  </div>
+</section>
+
+<footer>10 sente des Radoubs, Bordeaux — Cité du Vin</footer>
+
+</body>
+</html>
